@@ -1,0 +1,13 @@
+.App {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  height: 100%;
+  /* background-color: #3c4043 !important; */
+}
+
+.itemList{
+  color: white !important;
+  background-color: #3c4043 !important;
+}
