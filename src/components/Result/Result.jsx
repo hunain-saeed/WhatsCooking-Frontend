@@ -1,6 +1,9 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+
+import Dialog from "@material-ui/core/Dialog";
+// import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+// import Divider from "@material-ui/core/Divider";
 
 class Result extends React.Component {
   render() {
@@ -12,54 +15,21 @@ class Result extends React.Component {
         </div>
       );
     }
-    if (this.props.result.length !== 0) {
+    if (this.props.result != "") {
       return (
-        <div>
-          <p>
-            About {this.props.result.length} results ({this.props.time} seconds)
-          </p>
-          <div className="result">
-            <Grid container justify="center">
-              <Grid item xs={4}>
-                <Paper variant="outlined">
-                  <Grid container spacing={3} justify="center">
-                    <Grid item xs={6}>
-                      <h4>Score</h4>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <h4>Docids</h4>
-                    </Grid>
-                  </Grid>
-                </Paper>
-                {this.props.result.map((n, index) => {
-                  return (
-                    <div key={index}>
-                      <Paper variant="outlined" className="result">
-                        <Grid container spacing={3} justify="center">
-                          <Grid item xs={6}>
-                            <p>{this.props.score[index]}</p>
-                          </Grid>
-                          <Grid item xs={6}>
-                            <p>{n}</p>
-                          </Grid>
-                        </Grid>
-                      </Paper>
-                    </div>
-                  );
-                })}
-              </Grid>
-            </Grid>
-          </div>
-        </div>
+        <Dialog
+          open={this.props.open}
+          onClose={this.props.handleClose}
+          aria-labelledby="form-dialog-title"
+          className="resultdialoge"
+        >
+          <DialogTitle id="form-dialog-title">
+            Result : {this.props.result}
+          </DialogTitle>
+        </Dialog>
       );
     } else {
-      return (
-        <div>
-          <p>
-            About {this.props.result.length} results ({this.props.time} seconds)
-          </p>
-        </div>
-      );
+      return <div>no result</div>;
     }
   }
 }
