@@ -15,7 +15,7 @@ class Result extends React.Component {
         </div>
       );
     }
-    if (this.props.result != "") {
+    if (this.props.result !== "") {
       return (
         <Dialog
           open={this.props.open}

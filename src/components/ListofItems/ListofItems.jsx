@@ -28,7 +28,7 @@ class ListofItems extends Component {
         <div className="list">
           <List>
             <ListItem>
-              <ListItemText primary="emptylist" />
+              <ListItemText primary="" />
             </ListItem>
           </List>
         </div>

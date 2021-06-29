@@ -10,16 +10,24 @@ import Result from "./Result/Result";
 import ListofItems from "./ListofItems/ListofItems";
 
 class App extends React.Component {
-  state = { result: "123214", query: [], error: "", time: 0, open: false };
+  state = { result: "", query: [], error: "", time: 0, open: false };
 
-  onSearchSubmit = async (q) => {
+  onSearchSubmit = (q) => {
     this.setState({ error: "" });
-    if (q) {
-      this.setState({ query: [...this.state.query, q] });
+    this.setState({ query: [...this.state.query, q] });
+  };
 
+  // Opens dialouge box
+  handleClickOpen = async () => {
+    this.setState({ open: true });
+
+    this.setState({ error: "" });
+    if (this.state.query) {
       var t0 = performance.now();
 
-      const res = await vsm.post('/query', { query: this.state.query});
+      const res = await vsm.post("/query", { query: this.state.query });
+      
+      console.log(res.data);
 
       var t1 = (performance.now() - t0) / 1000;
       this.setState({ time: t1.toFixed(3) });
@@ -27,17 +35,13 @@ class App extends React.Component {
       if (res.data) {
         this.setState({ result: res["data"]["result"] });
         this.setState({ error: res["data"]["error"] });
+        this.setState({ query: [] });
       }
     } else {
-      this.setState({ result: [] });
+      this.setState({ result: "" });
       this.setState({ error: "" });
     }
-
-  };
-
-  // Opens dialouge box
-  handleClickOpen = () => {
-    this.setState({ open: true });
+    console.log(this.state.result);
   };
   // Close dialouge box
   handleClose = () => {
@@ -50,7 +54,11 @@ class App extends React.Component {
         <Logo />
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
         <ListofItems list={this.state.query} />
-        <Button variant="contained" className="result-button" onClick={this.handleClickOpen}>
+        <Button
+          variant="contained"
+          className="result-button"
+          onClick={this.handleClickOpen}
+        >
           GO!
         </Button>
         <Result
@@ -66,4 +74,3 @@ class App extends React.Component {
 }
 
 export default App;
-
