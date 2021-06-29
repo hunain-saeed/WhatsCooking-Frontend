@@ -1,9 +1,7 @@
 import "./Header.css";
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
-import Grid from "@material-ui/core/Grid";
 
 class SearchBar extends React.Component {
   state = { query: "" };
@@ -13,7 +11,9 @@ class SearchBar extends React.Component {
 
   onFormSubmit = (e) => {
     e.preventDefault();
+    
     this.props.onSearchSubmit(this.state.query);
+    this.setState({query: ""})
   };
 
   render() {
@@ -38,31 +38,3 @@ class SearchBar extends React.Component {
 
 export default SearchBar;
 
-// <AppBar position="static" className="appbars" variant="outlined">
-//         <div className="searchbar">
-//           <Grid container spacing={3}>
-//             <Grid item sm={2}>
-//               <Logo />
-//             </Grid>
-//             <Grid item sm={6}>
-
-//             </Grid>
-//             <Grid item sm={3}>
-//               <Paper
-//                 className="paper"
-//                 component="form"
-//                 onSubmit={this.onFormSubmit}
-//                 elevation={3}
-//               >
-//                 <InputBase
-//                   name="alpha"
-//                   className="inputbase1"
-//                   onChange={this.handleChange}
-//                   value={this.state.alpha}
-//                   placeholder="Enter cutoff value"
-//                 />
-//               </Paper>
-//             </Grid>
-//           </Grid>
-//         </div>
-//       </AppBar>
