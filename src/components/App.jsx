@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 
 import vsm from "../api/index";
 
+import Logo from "./Header/Logo";
 import SearchBar from "./Header/SearchBar";
 import Result from "./Result/Result";
 
@@ -32,7 +33,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-      
+        <Logo/>
+        <SearchBar onSearchSubmit={this.onSearchSubmit} />
         <Result
           result={this.state.result}
           score={this.state.score}

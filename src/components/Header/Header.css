@@ -1,43 +1,46 @@
-.heading {
-    margin: 0;
-}
+
 .paperTitle {
     padding: 10px 0;
     margin: 5px 0;
 }
 
-.result p {
-    margin: 5px 0;
+.logo {
+    height: 200px;
+    width: 328px;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-image: url("logo.png"); 
 }
 
-.appbars {
-    padding: 20px 0 30px 0;
-    background-color: #ffffff !important;
-}
 .paper {
-    /* background-color: #202125 !important; */
+    background-color: #4c4d52 !important;
+    color: white !important;
     /* border-color: #77787e !important; */
-    height: 40px !important;
     
+    margin-top: 25px;
+
+    height: 40px !important;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-radius: 30px !important;
+    /* border-radius: 30px !important; */
     /* up right down left */
     padding: 2px 5px 2px 20px;
 }
 .inputbase1 {
     width: 100% !important;
+    color: white !important;
 }
 
-.divider {
+/* .divider {
     height: 30px !important;
     margin-right: 10px !important;
-}
+} */
 
-.papersearch {
+/* .papersearch {
     flex-grow: 1;
-}
+} */
 
 /* .searchButton {
     color: #77787e !important;
